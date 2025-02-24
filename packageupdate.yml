@@ -1,0 +1,12 @@
+---
+- name: Update Package on Debian system
+  hosts: all
+  become: true  # Enable privilege escalation (sudo)
+  become_user: root  # Run tasks as the root user
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.10
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
